@@ -14,7 +14,7 @@ function update_nextcloud_config($nextcloud_conf, $onion) {
 
 		//add onion to trust domain
 		$bb=array_search($onion,$CONFIG["trusted_domains"]);
-		if(!$bb) { 
+		if(!$bb){
 			array_push($CONFIG['trusted_domains'],$onion);
 		}else{
 			return false;
@@ -80,7 +80,7 @@ if(count($argv)>=3){
 			echo "Error! Wrong lenght of onion address! Make sure you are using HSv3\n";
 		}
 	}elseif($argv[1] == "--help"){
-		print_help();	
+		print_help();
 	}else{
 		echo "Error! Wrong command!\n";
 	}
