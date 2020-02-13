@@ -9,7 +9,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=tor-hs
 PKG_VERSION:=0.0.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
@@ -21,15 +21,15 @@ PKG_INSTALL:=0
 include $(INCLUDE_DIR)/package.mk
 
 define Package/tor-hs
-	SECTION:=net
-	CATEGORY:=Network
-	SUBMENU:=IP Addresses and Names
-	TITLE:=Tor hidden service configurator
-	DEPENDS:=+tor
+  SECTION:=net
+  CATEGORY:=Network
+  SUBMENU:=IP Addresses and Names
+  TITLE:=Tor hidden service configurator
+  DEPENDS:=+tor
 endef
 
 define Package/tor-hs/description
-Tor Hidden Service configurator
+  Tor Hidden Service configurator
 endef
 
 define Package/tor-hs/conffiles
@@ -49,6 +49,8 @@ define Package/tor-hs/install
 	$(INSTALL_BIN) ./files/tor-hs.init $(1)/etc/init.d/tor-hs
 	$(INSTALL_DIR) $(1)/etc/tor/
 	$(INSTALL_BIN) ./files/nextcloud-update.php $(1)/etc/tor/
+	$(INSTALL_DIR) $(1)/usr/libexec/rpcd
+	$(INSTALL_BIN) ./files/tor_rpcd.sh $(1)/usr/libexec/rpcd/
 endef
 
 $(eval $(call BuildPackage,tor-hs))
