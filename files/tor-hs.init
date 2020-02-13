@@ -18,8 +18,8 @@ config_tor() {
 	config_get_bool restart_tor "common" RestartTor
 	config_get_bool update_config "common" UpdateTorConf
 
-	tail_conf=$(uci show tor.conf.tail_include)
-	head_conf=$(uci show tor.conf.head_include)
+	tail_conf=$(uci show tor.conf.tail_include 2>/dev/null)
+	head_conf=$(uci show tor.conf.head_include 2>/dev/null)
 	echo "tail_conf $tail_conf"
 
 	if [ $update_config == "1" ]; then
