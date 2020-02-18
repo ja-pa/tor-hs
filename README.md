@@ -1,9 +1,16 @@
 # Tor Hidden service configurator
-**tor-hs** packages tries to simplify creating of hidden services on OpenWrt router.
+**tor-hs** packages tries to simplify creating of hidden services on OpenWrt routers.
 
 ## Requirements
-To run **tor-hs**, you need tor package with support for uci config (support was added
-with [this commit](https://github.com/openwrt/packages/commit/ca6528f002d74445e3d0a336aeb9074fc337307a) )
+To run **tor-hs**, you need Tor package with uci config support (it was added
+with [this commit](https://github.com/openwrt/packages/commit/ca6528f002d74445e3d0a336aeb9074fc337307a) ).
+
+## Instalation
+To install package simple run
+```
+opkg update
+opkg install tor-hs
+```
 
 ## Configuration
 Uci configuration is located in **/etc/config/tor-hs**
