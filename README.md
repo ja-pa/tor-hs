@@ -27,8 +27,7 @@ config tor-hs common
 	option UpdateTorConf "true"
 ```
 
-Table with options description.
-
+#### Table with options description
 | Type | Name | Default | Description |
 | ------ | ------ | ------ | ------ |
 | option |GenConf | /etc/tor/torrc_generated|Generated config by tor-hs.|
@@ -37,7 +36,21 @@ Table with options description.
 | option | UpdateTorConf | true|Update /etc/config/tor with config from **GenConf** option.|
 
 ### Hidden service configuration
+If you want to create a new hidden service, you have to add a hidden-service section. For every hidden service, there should be a new **hidden-service** section.
+
+Example of hidden service section for ssh server:
+
+```
 config hidden-service
+	option Name 'sshd'
+	option Description "Hidden service for ssh"
+	option Enabled 'false'
+	option IPv4 '127.0.0.1'
+	#public port=2222, local port=22
+	list PublicLocalPort '2222;22'
+```
+
+#### Table with options description
 
 | Type | Name | Example value | Description |
 | ------ | ------ | ------ | ------ |
