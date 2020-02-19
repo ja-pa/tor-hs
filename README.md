@@ -16,7 +16,19 @@ opkg install tor-hs
 Uci configuration is located in **/etc/config/tor-hs**
 
 ### Required section of configuration
+There is  one required section **common**
+
+Example of this section
+```
 config tor-hs common
+	option GenConf "/etc/tor/torrc_hs"
+	option HSDir "/etc/tor/hidden_service"
+	option RestartTor "true"
+	option UpdateTorConf "true"
+```
+
+Table with options description.
+
 | Type | Name | Default | Description |
 | ------ | ------ | ------ | ------ |
 | option |GenConf | /etc/tor/torrc_generated|Generated config by tor-hs.|
