@@ -62,6 +62,8 @@ config hidden-service
 |option| HookScript |'/etc/tor/nextcloud-update.php'| Path to script which is executed after starting tor-hs. Script is executed with paramters **--update-onion** **hostname** . Hostname is replaced with Onion v3 address for given hidden service. |
 
 ### RPCD
+
+RPCD servis helps users to access basic informations about hidden services on router. After running HS it contains onion url for given hidden service in hostname value.
 ```
 root@turris:/# ubus call tor_rpcd.sh list-hs '{}'
 {
