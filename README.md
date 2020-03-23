@@ -59,7 +59,27 @@ config hidden-service
 |	option | Enabled |false| Enable hidden service after running **tor-hs** init script|
 |	option |IPv4 |127.0.0.1|Local IPv4 address of service. Service could run on another device, in that case OpenWrt will redirect comunication.  |
 |	list | PublicLocalPort| 2222;22| Public port is port accesible via Tor network. Local port is normal port of service.|
-|option| HookScript |'/etc/tor/nextcloud-update.php'| Path to script which is executed after starting tor-hs. Script is executed with paramters **--update-onion** **hostname** . Hostname is replaced with Onion v3 address for given hidden service. |
+|option| HookScript |'/etc/tor/nextcloud-update.php'| Path to script which is executed after starting tor-hs. Script is executed with paramters **--update-onion** **hostname** . Hostname is replaced with Onion v3 address for given hidden service. 
+
+## Running service
+
+To enable tor-hs service run 
+```
+/etc/init.d/tor-hs enable
+/etc/init.d/tor-hs start
+
+```
+In case you enabled option *RestartTor* and *UpdateTorConf* hidden service should be running.
+Otherwise, you should also restart tor daemon.
+
+```
+/etc/init.d/tor restart
+```
+
+After that you should also restart rpcd daemon, so you can use tor-hs RPCD service.
+```
+/etc/init.d/rpcd restart
+```
 
 ### RPCD
 
